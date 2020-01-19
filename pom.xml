@@ -2,11 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.metaconflux</groupId>
-    <artifactId>buildversion-maven-plugin</artifactId>
+    <artifactId>buildinfo-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>buildversion-maven-plugin</name>
-    <!--  <url>http://maven.apache.org</url>-->
+    <name>buildinfo-maven-plugin</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -61,20 +60,55 @@
             <version>${junit.platform.runner.version}</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
-    <!--  <dependencies>-->
-    <!--    <dependency>-->
-    <!--      <groupId>org.apache.maven</groupId>-->
-    <!--      <artifactId>maven-plugin-api</artifactId>-->
-    <!--      <version>2.0</version>-->
-    <!--    </dependency>-->
-    <!--    <dependency>-->
-    <!--      <groupId>junit</groupId>-->
-    <!--      <artifactId>junit</artifactId>-->
-    <!--      <version>3.8.1</version>-->
-    <!--      <scope>test</scope>-->
-    <!--    </dependency>-->
-    <!--  </dependencies>-->
+
+    <profiles>
+        <profile>
+            <id>BuildInfo</id>
+            <build>
+                <plugins>
+                    <plugin>
+                    <groupId>com.metaconflux</groupId>
+                        <artifactId>buildinfo-maven-plugin</artifactId>
+                        <version>1.0-SNAPSHOT</version>
+                        <configuration>
+                            <productName>buildinfo-maven-plugin</productName>
+                            <productCodeName></productCodeName>
+                            <productUrl>https://github.com/rabwallace/buildinfo-maven-plugin</productUrl>
+                            <version>1.0</version>
+                            <javaClassname>BuildInfo</javaClassname>
+                            <javaPackage>com.metaconflux.buildinfo.version</javaPackage>
+                            <srcRoot>\Users\User\IdeaProjects\buildinfo-maven-plugin\src\main\java</srcRoot>
+                            <projectStage>TEST</projectStage>
+
+                            <description></description>
+                            <copyright>Opensource</copyright>
+                            <author>Rab Wallace</author>
+                            <authorEmail>javarab@yahoo.com</authorEmail>
+                            <team></team>
+                            <teamEmail></teamEmail>
+                            <company></company>
+                            <companyEmail></companyEmail>
+                            <logoUrl></logoUrl>
+                            <shieldsioUrl>https://img.shields.io/badge/buildinfo-v1.0-green</shieldsioUrl>
+                        </configuration>
+
+                        <executions>
+                            <execution>
+                                <id>generate-sources</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>buildinfo</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+
+            </build>
+
+        </profile>
+    </profiles>
+
 </project>
