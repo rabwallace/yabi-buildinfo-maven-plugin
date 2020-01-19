@@ -72,6 +72,9 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
     @Parameter(property = "copyright")
     private String copyright;
 
+    @Parameter(property = "description")
+    private String description;
+
     @Parameter(property = "author")
     private String author;
 
@@ -92,6 +95,9 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
 
     @Parameter(property = "shieldsioUrl")
     private String shieldsioUrl;
+
+    @Parameter(property = "logoUrl")
+    private String logoUrl;
 
 
 
@@ -236,6 +242,30 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
         this.shieldsioUrl = shieldsioUrl;
     }
 
+    public String getTeam() {
+        return team;
+    }
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    public String getTeamEmail() {
+        return teamEmail;
+    }
+
+    public void setTeamEmail(String teamEmail) {
+        this.teamEmail = teamEmail;
+    }
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
+    }
+
     public void execute() throws MojoExecutionException {
         displayGreeting();
 
@@ -296,9 +326,6 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
     }
 
     protected void validateOutputDirectory(@NotNull final File pkgDir) throws MojoExecutionException {
-
-//        final File pkgDir = new File(fullPackageDir);
-
         if (!pkgDir.exists()) {
             if (!mkdir)
                 throw new MojoExecutionException("FAIL: srcRoot not found, either create directory, or set mkdir to true");
@@ -350,6 +377,7 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
 
         try {
             bif.writeImport("java.time.LocalDateTime");
+            bif.writeImport("java.time.format.DateTimeFormatter");
 
             bif.writeClass(javaClassname);
             bif.writeProjectStageEnum();
@@ -361,12 +389,15 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
             bif.writeAuthorDetails(author, authorEmail);
             bif.writeProjectStage(projectStage.toString());
             bif.writeCopyright(copyright);
+            bif.writeDescription(description);
             bif.writeShieldsioUrl(shieldsioUrl);
+            bif.writeLogoUrl(logoUrl);
             bif.writeConstructor();
             bif.writeGetter("productName", "String");
             bif.writeGetter("buildDateTime", "LocalDateTime");
             bif.writeGetter("version", "String");
             bif.writeGetter("projectStage", "ProjectStage");
+            bif.writeGetFormattedBuildDateTime();
             bif.writeCloseBrace();
         } finally {
             bif.close();

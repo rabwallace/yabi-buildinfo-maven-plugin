@@ -60,14 +60,12 @@
             <version>${junit.platform.runner.version}</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
 
     <profiles>
         <profile>
             <id>BuildInfo</id>
-
             <build>
                 <plugins>
                     <plugin>
@@ -78,20 +76,21 @@
                             <productName>buildinfo-maven-plugin</productName>
                             <productCodeName></productCodeName>
                             <productUrl>https://github.com/rabwallace/buildinfo-maven-plugin</productUrl>
-
                             <version>1.0</version>
                             <javaClassname>BuildInfo</javaClassname>
                             <javaPackage>com.metaconflux.buildinfo.version</javaPackage>
                             <srcRoot>\Users\User\IdeaProjects\buildinfo-maven-plugin\src\main\java</srcRoot>
                             <projectStage>TEST</projectStage>
 
-                            <copyright></copyright>
+                            <description></description>
+                            <copyright>Opensource</copyright>
                             <author>Rab Wallace</author>
                             <authorEmail>javarab@yahoo.com</authorEmail>
                             <team></team>
                             <teamEmail></teamEmail>
                             <company></company>
                             <companyEmail></companyEmail>
+                            <logoUrl></logoUrl>
                             <shieldsioUrl>https://img.shields.io/badge/buildinfo-v1.0-green</shieldsioUrl>
                         </configuration>
 
