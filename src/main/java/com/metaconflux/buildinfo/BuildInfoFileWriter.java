@@ -206,7 +206,7 @@ public class BuildInfoFileWriter {
 
     public void writeGetFormattedBuildDateTime() throws IOException {
         writer.newLine();
-        writer.write("\tpublic String  getLocalBuildDateTime(String format) {");
+        writer.write("\tpublic static String getLocalBuildDateTime(String format) {");
         writer.newLine();
         writer.write("\t\tfinal DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);");
         writer.newLine();
