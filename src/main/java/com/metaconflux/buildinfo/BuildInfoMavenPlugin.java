@@ -12,11 +12,11 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 /**
- * Goal which touches a timestamp file.
+ * Goal which builds a java class file containing build-time information that is made available at runtime.
  *
- *
- * @ --goal builddate
- * @ --phase process-sources
+ * @phase generate-sources
+ * @--goal buildinfo
+ * @author Rab Wallace
  */
 @Mojo(name = "buildinfo")
 public class BuildInfoMavenPlugin extends AbstractMojo {
@@ -24,7 +24,7 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
     private static final String PLUGIN_VERSION = "0.1";
     protected static final String DEFAULT_PLUGIN_DEFAULT_CLASSNAME = "BuildInfo";
 
-    public enum ProjectStage {
+    public static enum ProjectStage {
         PROOF_OF_CONCEPT,
         DEVELOPMENT,
         TEST,
@@ -36,37 +36,8 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
     private final Log log = getLog();
 
 
-
-    /*
-    REQUIRED
-    --------------------
-    productName            string
-    javaPackage            string
-    srcRoot                string
-
-    OPTIONAL
-    --------------------
-    javaClassname          string (default: BuildInfo)
-    projectStage           enum (default: DEVELOPMENT)
-    mkdir                  boolean (default: true)
-
-
-    Version 2
-    --------------------
-    projectCodeName         string
-    copyright               string
-    logoUrl                 string
-    shieldsioBadgeUrl       string
-    author                  string
-    authorEmail             string
-    team                    string
-    teamEmail               string
-    companyName             string
-    companyEmail            string
-     */
-
-    @Parameter(property = "productName")
-    private String productName;
+    @Parameter(property = "overwrite", defaultValue = "true")
+    private boolean overwrite;
 
     @Parameter(property = "javaClassname", defaultValue = DEFAULT_PLUGIN_DEFAULT_CLASSNAME)
     private String javaClassname;
@@ -84,6 +55,46 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
     private ProjectStage projectStage;
 
 
+
+
+    @Parameter(property = "productName")
+    private String productName;
+
+    @Parameter(property = "productCodeName")
+    private String productCodeName;
+
+    @Parameter(property = "productUrl")
+    private String productUrl;
+
+    @Parameter(property = "version")
+    private String version;
+
+    @Parameter(property = "copyright")
+    private String copyright;
+
+    @Parameter(property = "author")
+    private String author;
+
+    @Parameter(property = "authorEmail")
+    private String authorEmail;
+
+    @Parameter(property = "company")
+    private String company;
+
+    @Parameter(property = "companyEmail")
+    private String companyEmail;
+
+    @Parameter(property = "team")
+    private String team;
+
+    @Parameter(property = "teamEmail")
+    private String teamEmail;
+
+    @Parameter(property = "shieldsioUrl")
+    private String shieldsioUrl;
+
+
+
     private LocalDateTime buildTime = LocalDateTime.now();
 
     public String getProductName() {
@@ -92,6 +103,22 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public boolean isOverwrite() {
+        return overwrite;
+    }
+
+    public void setOverwrite(boolean overwrite) {
+        this.overwrite = overwrite;
     }
 
     public String getJavaClassname() {
@@ -143,6 +170,70 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
 
     public void setBuildTime(LocalDateTime buildTime) {
         this.buildTime = buildTime;
+    }
+
+    public String getProductCodeName() {
+        return productCodeName;
+    }
+
+    public void setProductCodeName(String productCodeName) {
+        this.productCodeName = productCodeName;
+    }
+
+    public String getProductUrl() {
+        return productUrl;
+    }
+
+    public void setProductUrl(String productUrl) {
+        this.productUrl = productUrl;
+    }
+
+    public String getCopyright() {
+        return copyright;
+    }
+
+    public void setCopyright(String copyright) {
+        this.copyright = copyright;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getAuthorEmail() {
+        return authorEmail;
+    }
+
+    public void setAuthorEmail(String authorEmail) {
+        this.authorEmail = authorEmail;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getCompanyEmail() {
+        return companyEmail;
+    }
+
+    public void setCompanyEmail(String companyEmail) {
+        this.companyEmail = companyEmail;
+    }
+
+    public String getShieldsioUrl() {
+        return shieldsioUrl;
+    }
+
+    public void setShieldsioUrl(String shieldsioUrl) {
+        this.shieldsioUrl = shieldsioUrl;
     }
 
     public void execute() throws MojoExecutionException {
@@ -202,8 +293,6 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
 
         File packageDir = new File(fullDirectory);
         return packageDir;
-
-//        return packageDirectory;
     }
 
     protected void validateOutputDirectory(@NotNull final File pkgDir) throws MojoExecutionException {
@@ -237,6 +326,14 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
     protected File createBuildInfoFile(@NotNull final File pkgDir) throws MojoExecutionException {
 
         File outFile = new File(pkgDir, javaClassname + ".java");
+
+        if (outFile.exists()) {
+            if (!overwrite)
+                throw new MojoExecutionException("FAIL: cannot overwrite " + javaClassname + ", delete file or set <overwrite>true</overwrite>");
+            else
+                outFile.delete();
+        }
+
         try {
             if (!outFile.createNewFile()) {
                 throw new MojoExecutionException("FAIL: srcRoot can't create file");
@@ -248,62 +345,31 @@ public class BuildInfoMavenPlugin extends AbstractMojo {
         return outFile;
     }
 
-//    protected void writeBuildInfoFile(@NotNull final File outFile) throws IOException {
-//        BufferedWriter writer = new BufferedWriter(new FileWriter(outFile));
-//
-//        try {
-//            writer.write("package " + javaPackage + ';');
-//            writer.newLine();
-//
-//            writer.write("import java.time.LocalDateTime;");
-//            writer.newLine();
-//
-//            writer.write("public class " + javaClassname + " {");
-//            writer.newLine();
-//
-//            writer.write("public " + javaClassname + "() {}");
-//            writer.newLine();
-//            writer.newLine();
-//
-//            writer.write("public String getBuildDate() {");
-//            writer.newLine();
-//            writer.write("return " + buildTime.toString() + ';');
-//            writer.newLine();
-//
-//            writer.write("}");
-//            writer.newLine();
-//
-//            writer.write("}");
-//        } finally {
-//            writer.close();
-//        }
-//    }
-
     protected void writeBuildInfoFile(@NotNull final File outFile) throws IOException {
-        BuildInfoFileWriter bif = new BuildInfoFileWriter(outFile, javaPackage);
+        BuildInfoFileWriter bif = new BuildInfoFileWriter(outFile, javaPackage, buildTime);
 
         try {
             bif.writeImport("java.time.LocalDateTime");
 
             bif.writeClass(javaClassname);
-
-            bif.writeBuildDateTimeVariables(buildTime);
-//            bif.write("\tprivate int year=" + buildTime.getYear() + ';');
-//            bif.write("\tprivate int month=" + buildTime.getMonthValue() + ';');
-//            bif.write("\tprivate int day=" + buildTime.getDayOfMonth() + ';');
-//            bif.write("\tprivate int hour=" + buildTime.getHour() + ';');
-//            bif.write("\tprivate int minute=" + buildTime.getMinute() + ';');
-//            bif.write("\tprivate int second=" + buildTime.getSecond() + ';');
-//            bif.write("\tprivate LocalDateTime buildDateTime;");
-
+            bif.writeProjectStageEnum();
+            bif.writeBuildDateTimeVariables();
+            bif.writeVersion(version);
+            bif.writeProductDetails(productName, productCodeName, productUrl);
+            bif.writeCompanyDetails(company, companyEmail);
+            bif.writeTeamDetails(team, teamEmail);
+            bif.writeAuthorDetails(author, authorEmail);
+            bif.writeProjectStage(projectStage.toString());
+            bif.writeCopyright(copyright);
+            bif.writeShieldsioUrl(shieldsioUrl);
             bif.writeConstructor();
-
-            bif.writeGetBuildDate();
-
+            bif.writeGetter("productName", "String");
+            bif.writeGetter("buildDateTime", "LocalDateTime");
+            bif.writeGetter("version", "String");
+            bif.writeGetter("projectStage", "ProjectStage");
             bif.writeCloseBrace();
         } finally {
             bif.close();
         }
     }
-
 }

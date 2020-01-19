@@ -15,6 +15,7 @@ public class TestBuildInfoPlugin {
     private static final String CLASSNAME = "MyOutput.java";
     private static final String JAVA_PACKAGE = "com.text.TestPlugin";
     private static final String SRCROOT = "/test/dir";
+    private static final String VERSION = "v1.0";
     private static final BuildInfoMavenPlugin.ProjectStage STAGE_DEVELOPMENT = BuildInfoMavenPlugin.ProjectStage.DEVELOPMENT;
     private static final BuildInfoMavenPlugin.ProjectStage STAGE_PRODUCTION = BuildInfoMavenPlugin.ProjectStage.PRODUCTION;
 
@@ -87,7 +88,7 @@ public class TestBuildInfoPlugin {
     @Test
     public void testPlugin_GetPackageDirectory() {
         final String PACKAGE_NAME = "com.test.plugin.buildinfo";
-        final String EXPECTED_PATH = PACKAGE_NAME.replace('.', File.separatorChar);
+        final String EXPECTED_PATH = "C:\\test\\dir\\com\\test\\plugin\\buildinfo";
 
         Plugin plugin = (Plugin) buildPlugin();
         plugin.setJavaPackage(PACKAGE_NAME);
@@ -119,6 +120,7 @@ public class TestBuildInfoPlugin {
         final File dir = new File(FULL_DIRECTORY);
 
         Plugin plugin = (Plugin) buildPlugin();
+        plugin.setOverwrite(true);
 
         try {
             File buildInfoFile = plugin.createBuildInfoFile(dir);
@@ -136,6 +138,7 @@ public class TestBuildInfoPlugin {
         final File dir = new File(FULL_DIRECTORY);
 
         Plugin plugin = (Plugin) buildPlugin();
+        plugin.setOverwrite(true);
 
         final File buildInfoFile;
         try {
@@ -151,6 +154,62 @@ public class TestBuildInfoPlugin {
         } catch (IOException e) {
             fail(e.getMessage());
         }
+    }
+
+    @Test
+    public void test_WriteBuildInfoFile_overwriteFail() {
+        String FULL_DIRECTORY = "\\tmp\\TestPlugin";
+        FULL_DIRECTORY = FULL_DIRECTORY.replace('.', File.separatorChar);
+
+        final File dir = new File(FULL_DIRECTORY);
+
+        Plugin plugin = (Plugin) buildPlugin();
+        plugin.setOverwrite(true);
+
+        //create a fresh copy first (overwrite if necessary)
+        final File buildInfoFile;
+        try {
+            buildInfoFile = plugin.createBuildInfoFile(dir);
+            assertNotNull(buildInfoFile);
+        } catch (MojoExecutionException e) {
+            fail(e.getMessage());
+            return;
+        }
+
+        try {
+            plugin.writeBuildInfoFile(buildInfoFile);
+        } catch (IOException e) {
+            fail(e.getMessage());
+        }
+
+
+        //all should be ok so far
+        //now try to repeat but do not allow fie overwrite, this *should* throw an exception
+        plugin.setOverwrite(false);
+
+        //create a fresh copy first (overwrite if necessary)
+        final File buildInfoFile2;
+        try {
+            buildInfoFile2 = plugin.createBuildInfoFile(dir);
+            fail("ERROR: exception should have been thrown");
+//            assertNotNull(buildInfoFile2);
+        } catch (MojoExecutionException e) {
+//            fail(e.getMessage());
+//            return;
+        }
+
+
+        //try to create a new copy but do not overwrite - force fail
+//        plugin.setOverwrite(false);
+
+//        try {
+//            plugin.writeBuildInfoFile(buildInfoFile2);
+//            fail("Should not have got here.");
+//        } catch (IOException e) {
+////            fail(e.getMessage());
+//        }
+
+
     }
 
     @Test
@@ -195,6 +254,7 @@ public class TestBuildInfoPlugin {
         plugin.setJavaPackage(JAVA_PACKAGE);
         plugin.setJavaClassname(CLASSNAME);
         plugin.setProjectStage(STAGE_DEVELOPMENT);
+        plugin.setVersion(VERSION);
 
         return plugin;
     }
