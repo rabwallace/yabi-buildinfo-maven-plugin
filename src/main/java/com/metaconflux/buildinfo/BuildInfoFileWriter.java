@@ -1,10 +1,12 @@
-/*****************************************************************
- * Copyright ©2020 Rab Wallace
- * This software is released under the terms of
- * GNU General Public License GPLv3
+/*******************************************************************************************
+ * This software is released under the terms of the GNU General Public License GPLv3
+ * and is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied.
+ * See the License (licencse.txt) for the specific language governing permissions and
+ * limitations under the License.
  *
- * See license.txt for terms.
- *****************************************************************/
+ * Copyright ©2020 Rab Wallace
+ *******************************************************************************************/
 
 package com.metaconflux.buildinfo;
 

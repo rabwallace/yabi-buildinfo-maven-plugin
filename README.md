@@ -1,8 +1,12 @@
 ![buildinfo-maven-plugin v1.0](https://img.shields.io/badge/buildinfo-v1.0-green)
 
-######GNU GPLv3 License
-    Copyright ©2020 Rab Wallace
-    This software is distributed under the terms of the GNU General Public License GPLv3 license.
+    buildinfo-maven-plugin
+    ----------------------
+    This software is released under the terms of the GNU General Public License GPLv3
+    and is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+    either express or implied.
+    See the License (licencse.txt) for the specific language governing permissions and
+    limitations under the License.
     http://www.gnu.org/licenses/gpl-3.0.en.html
 
 
