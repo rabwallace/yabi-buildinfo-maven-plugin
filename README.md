@@ -1,11 +1,19 @@
 ![buildinfo-maven-plugin v1.0](https://img.shields.io/badge/buildinfo-v1.0-green)
+
+######GNU GPLv3 License
+    Copyright ©2020 Rab Wallace
+    This software is distributed under the terms of the GNU General Public License GPLv3 license.
+    http://www.gnu.org/licenses/gpl-3.0.en.html
+
+
 # buildinfo-maven-plugin
-A simple maven plugin to build, and make available at runtime, build & project information, easily configurable from the pom.xml.
+A freely available, simple maven plugin to build, and make available at runtime, build & project information, easily configurable from the pom.xml.
 
 Released as an open source project (License Pending).
 
 ######Author
 [Rab Wallace](https://github.com/rabwallace)
+email: javarab@yahoo.com
 ---
 
 ####Maven Dependency

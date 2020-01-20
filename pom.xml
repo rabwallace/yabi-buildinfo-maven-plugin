@@ -82,8 +82,8 @@
                             <srcRoot>\Users\User\IdeaProjects\buildinfo-maven-plugin\src\main\java</srcRoot>
                             <projectStage>TEST</projectStage>
 
-                            <description></description>
-                            <copyright>Opensource</copyright>
+                            <description>A maven plugin that generates build-time information.</description>
+                            <copyright>Copyright 2020 Rab Wallace, GNU General Public License GPLv3</copyright>
                             <author>Rab Wallace</author>
                             <authorEmail>javarab@yahoo.com</authorEmail>
                             <team></team>

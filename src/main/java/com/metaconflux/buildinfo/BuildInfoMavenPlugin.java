@@ -1,3 +1,11 @@
+/*****************************************************************
+ * Copyright ©2020 Rab Wallace
+ * This software is released under the terms of
+ * GNU General Public License GPLv3
+ *
+ * See license.txt for terms.
+ *****************************************************************/
+
 package com.metaconflux.buildinfo;
 
 import org.apache.maven.plugin.AbstractMojo;
