@@ -1,11 +1,19 @@
 /*******************************************************************************************
- * This software is released under the terms of the GNU General Public License GPLv3 or later
- * and is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied.
- * See file COPYING.txt for the specific language governing permissions and limitations under
- * the License.
- *
  * Copyright ©2020 Rab Wallace
+ * This file is part of yabi-buildinfo-maven-plugin.
+ *
+ * yabi-buildinfo-maven-plugin is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * yabi-buildinfo-maven-plugin is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with yabi-buildinfo-maven-plugin.  If not, see <https://www.gnu.org/licenses/>.
  *******************************************************************************************/
 
 package com.metaconflux.yabibuildinfo;
@@ -71,18 +79,6 @@ public class BuildInfoFileWriter {
         int minute = buildTime.getMinute();
         int second = buildTime.getSecond();
 
-//        writer.write("\tprivate final int year=" + year + ';');
-//        writer.newLine();
-//        writer.write("\tprivate final int month=" + month + ';');
-//        writer.newLine();
-//        writer.write("\tprivate final int day=" + day + ';');
-//        writer.newLine();
-//        writer.write("\tprivate final int hour=" + hour + ';');
-//        writer.newLine();
-//        writer.write("\tprivate final int minute=" + minute + ';');
-//        writer.newLine();
-//        writer.write("\tprivate final int second=" + second + ';');
-//        writer.newLine();
         writer.write("\tpublic static final LocalDateTime buildDateTime = LocalDateTime.of(" + year + ", " + month +
                 ", " + day + ", " + hour + ", " + minute + ", " + second + ");");
         writer.newLine();
