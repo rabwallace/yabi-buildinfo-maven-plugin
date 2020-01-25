@@ -1,4 +1,22 @@
-package com.metaconflux.buildinfo;
+/*******************************************************************************************
+ * Copyright ©2020 Rab Wallace
+ * This file is part of yabi-buildinfo-maven-plugin.
+ *
+ * yabi-buildinfo-maven-plugin is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * yabi-buildinfo-maven-plugin is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with yabi-buildinfo-maven-plugin.  If not, see <https://www.gnu.org/licenses/>.
+ *******************************************************************************************/
+
+package com.metaconflux.yabibuildinfo;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -15,13 +33,12 @@ import java.time.LocalDateTime;
  * Goal which builds a java class file containing build-time information that is made available at runtime.
  *
  * @phase generate-sources
- * @--goal buildinfo
  * @author Rab Wallace
  */
 @Mojo(name = "buildinfo")
-public class BuildInfoMavenPlugin extends AbstractMojo {
-    private static final String PLUGIN_NAME = "buildinfo-maven-plugin";
-    private static final String PLUGIN_VERSION = "0.1";
+public class YabiBuildInfoMavenPlugin extends AbstractMojo {
+    private static final String PLUGIN_NAME = "yabi-buildinfo-maven-plugin";
+    private static final String PLUGIN_VERSION = "1.0";
     protected static final String DEFAULT_PLUGIN_DEFAULT_CLASSNAME = "BuildInfo";
 
     public static enum ProjectStage {

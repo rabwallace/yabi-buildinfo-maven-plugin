@@ -1,4 +1,22 @@
-package com.metaconflux.buildinfo;
+/*******************************************************************************************
+ * Copyright ©2020 Rab Wallace
+ * This file is part of yabi-buildinfo-maven-plugin.
+ *
+ * yabi-buildinfo-maven-plugin is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * yabi-buildinfo-maven-plugin is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with yabi-buildinfo-maven-plugin.  If not, see <https://www.gnu.org/licenses/>.
+ *******************************************************************************************/
+
+package com.metaconflux.yabibuildinfo;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.junit.jupiter.api.Test;
@@ -10,16 +28,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 //@RunWith(JUnitPlatform.class)
-public class TestBuildInfoPlugin {
+public class TestYabiBuildInfoPlugin {
     private static final String PRODUCT_NAME = "This is the Product Name";
     private static final String CLASSNAME = "MyOutput.java";
     private static final String JAVA_PACKAGE = "com.text.TestPlugin";
     private static final String SRCROOT = "/test/dir";
     private static final String VERSION = "v1.0";
-    private static final BuildInfoMavenPlugin.ProjectStage STAGE_DEVELOPMENT = BuildInfoMavenPlugin.ProjectStage.DEVELOPMENT;
-    private static final BuildInfoMavenPlugin.ProjectStage STAGE_PRODUCTION = BuildInfoMavenPlugin.ProjectStage.PRODUCTION;
+    private static final YabiBuildInfoMavenPlugin.ProjectStage STAGE_DEVELOPMENT = YabiBuildInfoMavenPlugin.ProjectStage.DEVELOPMENT;
+    private static final YabiBuildInfoMavenPlugin.ProjectStage STAGE_PRODUCTION = YabiBuildInfoMavenPlugin.ProjectStage.PRODUCTION;
 
-    private class Plugin extends BuildInfoMavenPlugin {
+    private class Plugin extends YabiBuildInfoMavenPlugin {
     }
 
     @Test
@@ -245,7 +263,7 @@ public class TestBuildInfoPlugin {
     }
 
 
-    private BuildInfoMavenPlugin buildPlugin() {
+    private YabiBuildInfoMavenPlugin buildPlugin() {
         Plugin plugin = new Plugin();
 
         plugin.setProductName(PRODUCT_NAME);
