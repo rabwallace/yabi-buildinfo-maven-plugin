@@ -1,9 +1,9 @@
 /*******************************************************************************************
- * This software is released under the terms of the GNU General Public License GPLv3
+ * This software is released under the terms of the GNU General Public License GPLv3 or later
  * and is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
  * either express or implied.
- * See the License (licencse.txt) for the specific language governing permissions and
- * limitations under the License.
+ * See file COPYING.txt for the specific language governing permissions and limitations under
+ * the License.
  *
  * Copyright ©2020 Rab Wallace
  *******************************************************************************************/
@@ -71,18 +71,18 @@ public class BuildInfoFileWriter {
         int minute = buildTime.getMinute();
         int second = buildTime.getSecond();
 
-        writer.write("\tprivate final int year=" + year + ';');
-        writer.newLine();
-        writer.write("\tprivate final int month=" + month + ';');
-        writer.newLine();
-        writer.write("\tprivate final int day=" + day + ';');
-        writer.newLine();
-        writer.write("\tprivate final int hour=" + hour + ';');
-        writer.newLine();
-        writer.write("\tprivate final int minute=" + minute + ';');
-        writer.newLine();
-        writer.write("\tprivate final int second=" + second + ';');
-        writer.newLine();
+//        writer.write("\tprivate final int year=" + year + ';');
+//        writer.newLine();
+//        writer.write("\tprivate final int month=" + month + ';');
+//        writer.newLine();
+//        writer.write("\tprivate final int day=" + day + ';');
+//        writer.newLine();
+//        writer.write("\tprivate final int hour=" + hour + ';');
+//        writer.newLine();
+//        writer.write("\tprivate final int minute=" + minute + ';');
+//        writer.newLine();
+//        writer.write("\tprivate final int second=" + second + ';');
+//        writer.newLine();
         writer.write("\tpublic static final LocalDateTime buildDateTime = LocalDateTime.of(" + year + ", " + month +
                 ", " + day + ", " + hour + ", " + minute + ", " + second + ");");
         writer.newLine();
