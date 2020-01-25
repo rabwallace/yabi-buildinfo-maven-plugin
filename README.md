@@ -1,16 +1,18 @@
-![buildinfo-maven-plugin v1.0](https://img.shields.io/badge/buildinfo-v1.0-green)
+![yabi-buildinfo-maven-plugin v1.0](https://img.shields.io/badge/yabi--buildinfo-v1.0-success)
 
-    buildinfo-maven-plugin
-    ----------------------
-    This software is released under the terms of the GNU General Public License GPLv3
+####YABI (Yet Another Build Info) Maven Plugin
+
+    yabi-buildinfo-maven-plugin
+    ---------------------------
+    This software is released under the terms of the GNU General Public License GPLv3 or later
     and is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
     either express or implied.
-    See the License (licencse.txt) for the specific language governing permissions and
+    See the License (LICENSE.txt) for the specific language governing permissions and
     limitations under the License.
     http://www.gnu.org/licenses/gpl-3.0.en.html
 
 
-# buildinfo-maven-plugin
+# yabi-buildinfo-maven-plugin
 A freely available, simple maven plugin to build, and make available at runtime, build & project information, easily configurable from the pom.xml.
 
 Released as an open source project (License Pending).
@@ -23,7 +25,7 @@ email: javarab@yahoo.com
 ####Maven Dependency
     <dependency>
         <groupId>com.metaconflux</groupId>
-        <artifactId>buildinfo-maven-plugin</artifactId>
+        <artifactId>yabi-buildinfo-maven-plugin</artifactId>
         <version>1.0-SNAPSHOT</version>
     </dependency>
 
@@ -66,14 +68,14 @@ The plugin has a few mandatory config settings and several optional settings. Al
                 <plugins>
                     <plugin>
                     <groupId>com.metaconflux</groupId>
-                        <artifactId>buildinfo-maven-plugin</artifactId>
+                        <artifactId>yab-buildinfo-maven-plugin</artifactId>
                         <version>1.0-SNAPSHOT</version>
                         <configuration>
-                            <productName>buildinfo-maven-plugin</productName>
+                            <productName>yabi-buildinfo-maven-plugin</productName>
                             <version>1.0</version>
                             <javaClassname>BuildInfo</javaClassname>
-                            <javaPackage>com.metaconflux.buildinfo.version</javaPackage>
-                            <srcRoot>\Users\User\IdeaProjects\buildinfo-maven-plugin\src\main\java</srcRoot>
+                            <javaPackage>com.metaconflux.yabibuildinfo.version</javaPackage>
+                            <srcRoot>\Users\User\IdeaProjects\yabi-buildinfo-maven-plugin\src\main\java</srcRoot>
                             <projectStage>DEVELOPMENT</projectStage>
 
                             <copyright></copyright>

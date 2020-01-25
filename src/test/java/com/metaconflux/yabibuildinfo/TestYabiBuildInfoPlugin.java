@@ -1,4 +1,4 @@
-package com.metaconflux.buildinfo;
+package com.metaconflux.yabibuildinfo;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.junit.jupiter.api.Test;
@@ -10,16 +10,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 //@RunWith(JUnitPlatform.class)
-public class TestBuildInfoPlugin {
+public class TestYabiBuildInfoPlugin {
     private static final String PRODUCT_NAME = "This is the Product Name";
     private static final String CLASSNAME = "MyOutput.java";
     private static final String JAVA_PACKAGE = "com.text.TestPlugin";
     private static final String SRCROOT = "/test/dir";
     private static final String VERSION = "v1.0";
-    private static final BuildInfoMavenPlugin.ProjectStage STAGE_DEVELOPMENT = BuildInfoMavenPlugin.ProjectStage.DEVELOPMENT;
-    private static final BuildInfoMavenPlugin.ProjectStage STAGE_PRODUCTION = BuildInfoMavenPlugin.ProjectStage.PRODUCTION;
+    private static final YabiBuildInfoMavenPlugin.ProjectStage STAGE_DEVELOPMENT = YabiBuildInfoMavenPlugin.ProjectStage.DEVELOPMENT;
+    private static final YabiBuildInfoMavenPlugin.ProjectStage STAGE_PRODUCTION = YabiBuildInfoMavenPlugin.ProjectStage.PRODUCTION;
 
-    private class Plugin extends BuildInfoMavenPlugin {
+    private class Plugin extends YabiBuildInfoMavenPlugin {
     }
 
     @Test
@@ -245,7 +245,7 @@ public class TestBuildInfoPlugin {
     }
 
 
-    private BuildInfoMavenPlugin buildPlugin() {
+    private YabiBuildInfoMavenPlugin buildPlugin() {
         Plugin plugin = new Plugin();
 
         plugin.setProductName(PRODUCT_NAME);

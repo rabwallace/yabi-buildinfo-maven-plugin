@@ -1,5 +1,5 @@
 /*******************************************************************************************
- * This software is released under the terms of the GNU General Public License GPLv3
+ * This software is released under the terms of the GNU General Public License GPLv3 or later
  * and is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
  * either express or implied.
  * See the License (licencse.txt) for the specific language governing permissions and
@@ -8,7 +8,7 @@
  * Copyright ©2020 Rab Wallace
  *******************************************************************************************/
 
-package com.metaconflux.buildinfo;
+package com.metaconflux.yabibuildinfo;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -29,9 +29,9 @@ import java.time.LocalDateTime;
  * @author Rab Wallace
  */
 @Mojo(name = "buildinfo")
-public class BuildInfoMavenPlugin extends AbstractMojo {
-    private static final String PLUGIN_NAME = "buildinfo-maven-plugin";
-    private static final String PLUGIN_VERSION = "0.1";
+public class YabiBuildInfoMavenPlugin extends AbstractMojo {
+    private static final String PLUGIN_NAME = "yabi-buildinfo-maven-plugin";
+    private static final String PLUGIN_VERSION = "0.9";
     protected static final String DEFAULT_PLUGIN_DEFAULT_CLASSNAME = "BuildInfo";
 
     public static enum ProjectStage {

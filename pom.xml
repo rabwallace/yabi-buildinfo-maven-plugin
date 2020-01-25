@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.metaconflux</groupId>
-    <artifactId>buildinfo-maven-plugin</artifactId>
+    <artifactId>yabi-buildinfo-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>buildinfo-maven-plugin</name>
+    <name>yabi-buildinfo-maven-plugin</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -70,20 +70,20 @@
                 <plugins>
                     <plugin>
                     <groupId>com.metaconflux</groupId>
-                        <artifactId>buildinfo-maven-plugin</artifactId>
+                        <artifactId>yabi-buildinfo-maven-plugin</artifactId>
                         <version>1.0-SNAPSHOT</version>
                         <configuration>
-                            <productName>buildinfo-maven-plugin</productName>
+                            <productName>yabi-buildinfo-maven-plugin</productName>
                             <productCodeName></productCodeName>
-                            <productUrl>https://github.com/rabwallace/buildinfo-maven-plugin</productUrl>
-                            <version>1.0</version>
+                            <productUrl>https://github.com/rabwallace/yabi-buildinfo-maven-plugin</productUrl>
+                            <version>0.9</version>
                             <javaClassname>BuildInfo</javaClassname>
-                            <javaPackage>com.metaconflux.buildinfo.version</javaPackage>
-                            <srcRoot>\Users\User\IdeaProjects\buildinfo-maven-plugin\src\main\java</srcRoot>
+                            <javaPackage>com.metaconflux.yabibuildinfo.version</javaPackage>
+                            <srcRoot>\Users\User\IdeaProjects\yabi-buildinfo-maven-plugin\src\main\java</srcRoot>
                             <projectStage>TEST</projectStage>
 
                             <description>A maven plugin that generates build-time information.</description>
-                            <copyright>Copyright 2020 Rab Wallace, GNU General Public License GPLv3</copyright>
+                            <copyright>Copyright 2020 Rab Wallace, GNU General Public License GPLv3 or later</copyright>
                             <author>Rab Wallace</author>
                             <authorEmail>javarab@yahoo.com</authorEmail>
                             <team></team>
@@ -91,7 +91,7 @@
                             <company></company>
                             <companyEmail></companyEmail>
                             <logoUrl></logoUrl>
-                            <shieldsioUrl>https://img.shields.io/badge/buildinfo-v1.0-green</shieldsioUrl>
+                            <shieldsioUrl>https://img.shields.io/badge/yabi--buildinfo-v1.0-success</shieldsioUrl>
                         </configuration>
 
                         <executions>
@@ -105,10 +105,7 @@
                         </executions>
                     </plugin>
                 </plugins>
-
             </build>
-
         </profile>
     </profiles>
-
 </project>
