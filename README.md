@@ -1,21 +1,22 @@
 ![yabi-buildinfo-maven-plugin v1.0](https://img.shields.io/badge/yabi--buildinfo-v1.0-success)
 
-####YABI (Yet Another Build Info) Maven Plugin
+#####YABI (Yet Another Build Info) Maven Plugin
 
+    COPYRIGHT
     yabi-buildinfo-maven-plugin
-    ---------------------------
+    Copyright ©2020 Rab Wallace
     This software is released under the terms of the GNU General Public License GPLv3 or later
     and is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
     either express or implied.
-    See the License (LICENSE.txt) for the specific language governing permissions and
+    See the License (COPYING.txt) for the specific language governing permissions and
     limitations under the License.
     http://www.gnu.org/licenses/gpl-3.0.en.html
 
 
-# yabi-buildinfo-maven-plugin
-A freely available, simple maven plugin to build, and make available at runtime, build & project information, easily configurable from the pom.xml.
+#####yabi-buildinfo-maven-plugin
+A simple, freely available maven plugin to build, and make available at runtime, build & project information, easily configurable from the pom.xml.
 
-Released as an open source project (License Pending).
+Released as an open source project licensed under <b>GNU GPLv3 or later</b>.
 
 ######Author
 [Rab Wallace](https://github.com/rabwallace)
