@@ -27,7 +27,7 @@ email: javarab@yahoo.com
     <dependency>
         <groupId>com.metaconflux</groupId>
         <artifactId>yabi-buildinfo-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
     </dependency>
 
 ##Plugin Configuration (pom.xml)
@@ -70,7 +70,7 @@ The plugin has a few mandatory config settings and several optional settings. Al
                     <plugin>
                     <groupId>com.metaconflux</groupId>
                         <artifactId>yab-buildinfo-maven-plugin</artifactId>
-                        <version>1.0-SNAPSHOT</version>
+                        <version>1.0</version>
                         <configuration>
                             <productName>yabi-buildinfo-maven-plugin</productName>
                             <version>1.0</version>
