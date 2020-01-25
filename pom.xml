@@ -4,7 +4,7 @@
     <groupId>com.metaconflux</groupId>
     <artifactId>yabi-buildinfo-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>yabi-buildinfo-maven-plugin</name>
 
     <properties>
@@ -71,12 +71,12 @@
                     <plugin>
                     <groupId>com.metaconflux</groupId>
                         <artifactId>yabi-buildinfo-maven-plugin</artifactId>
-                        <version>1.0-SNAPSHOT</version>
+                        <version>1.0</version>
                         <configuration>
                             <productName>yabi-buildinfo-maven-plugin</productName>
                             <productCodeName></productCodeName>
                             <productUrl>https://github.com/rabwallace/yabi-buildinfo-maven-plugin</productUrl>
-                            <version>0.9</version>
+                            <version>1.0</version>
                             <javaClassname>BuildInfo</javaClassname>
                             <javaPackage>com.metaconflux.yabibuildinfo.version</javaPackage>
                             <srcRoot>\Users\User\IdeaProjects\yabi-buildinfo-maven-plugin\src\main\java</srcRoot>

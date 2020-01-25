@@ -31,7 +31,7 @@ import java.time.LocalDateTime;
 @Mojo(name = "buildinfo")
 public class YabiBuildInfoMavenPlugin extends AbstractMojo {
     private static final String PLUGIN_NAME = "yabi-buildinfo-maven-plugin";
-    private static final String PLUGIN_VERSION = "0.9";
+    private static final String PLUGIN_VERSION = "1.0";
     protected static final String DEFAULT_PLUGIN_DEFAULT_CLASSNAME = "BuildInfo";
 
     public static enum ProjectStage {
