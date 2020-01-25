@@ -23,22 +23,22 @@ Released as an open source project licensed under <b>GNU GPLv3 or later</b>.
 email: javarab@yahoo.com
 ---
 
-####Maven Dependency
+#####Maven Dependency
     <dependency>
         <groupId>com.metaconflux</groupId>
         <artifactId>yabi-buildinfo-maven-plugin</artifactId>
         <version>1.0</version>
     </dependency>
 
-##Plugin Configuration (pom.xml)
+#####Plugin Configuration (pom.xml)
 The plugin has a few mandatory config settings and several optional settings. All are string values (except where stated):
-####Required configuration
+#####Required configuration
     <productName>
     <javaClassname> (default: "BuildInfo", this is the name of the java source file that will be generated)
     <javaPackage>
     <srcRoot>
 
-####Optional configuration
+#####Optional configuration
     <version>
     <projectStage> (enum, default: DEVELOPMENT)
     <mkdir> (boolean, default: true, can the plugin generated the required directory)
@@ -56,7 +56,7 @@ The plugin has a few mandatory config settings and several optional settings. Al
     <companyName>
     <companyEmail>
 
-####Values of the ProjectStage enumeration:
+#####Values of the ProjectStage enumeration:
         - PROOF_OF_CONCEPT,
         - DEVELOPMENT,
         - TEST,
@@ -64,7 +64,7 @@ The plugin has a few mandatory config settings and several optional settings. Al
         - BETA,
         - PRODUCTION
 
-####Example pom.xml configuration
+#####Example pom.xml configuration
             <build>
                 <plugins>
                     <plugin>
