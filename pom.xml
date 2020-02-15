@@ -4,7 +4,7 @@
     <groupId>com.metaconflux</groupId>
     <artifactId>yabi-buildinfo-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
-    <version>1.0</version>
+    <version>1.01</version>
     <name>yabi-buildinfo-maven-plugin</name>
 
     <properties>
@@ -71,17 +71,17 @@
                     <plugin>
                     <groupId>com.metaconflux</groupId>
                         <artifactId>yabi-buildinfo-maven-plugin</artifactId>
-                        <version>1.0</version>
+                        <version>1.01</version>
                         <configuration>
                             <productName>yabi-buildinfo-maven-plugin</productName>
                             <productCodeName></productCodeName>
                             <productUrl>https://github.com/rabwallace/yabi-buildinfo-maven-plugin</productUrl>
-                            <version>1.0</version>
+                            <version>1.01</version>
+                            <mainclass>true</mainclass>
                             <javaClassname>BuildInfo</javaClassname>
                             <javaPackage>com.metaconflux.yabibuildinfo.version</javaPackage>
                             <srcRoot>\Users\User\IdeaProjects\yabi-buildinfo-maven-plugin\src\main\java</srcRoot>
                             <projectStage>TEST</projectStage>
-
                             <description>A maven plugin that generates build-time information.</description>
                             <copyright>Copyright 2020 Rab Wallace, GNU General Public License GPLv3 or later</copyright>
                             <author>Rab Wallace</author>

@@ -38,7 +38,7 @@ import java.time.LocalDateTime;
 @Mojo(name = "buildinfo")
 public class YabiBuildInfoMavenPlugin extends AbstractMojo {
     private static final String PLUGIN_NAME = "yabi-buildinfo-maven-plugin";
-    private static final String PLUGIN_VERSION = "1.0";
+    private static final String PLUGIN_VERSION = "1.01";
     protected static final String DEFAULT_PLUGIN_DEFAULT_CLASSNAME = "BuildInfo";
 
     public static enum ProjectStage {
@@ -52,6 +52,9 @@ public class YabiBuildInfoMavenPlugin extends AbstractMojo {
 
     private final Log log = getLog();
 
+
+    @Parameter(property = "mainclass", defaultValue = "true")
+    private boolean mainclass;
 
     @Parameter(property = "overwrite", defaultValue = "true")
     private boolean overwrite;
@@ -71,11 +74,11 @@ public class YabiBuildInfoMavenPlugin extends AbstractMojo {
     @Parameter(property = "projectStage", defaultValue = "DEVELOPMENT")
     private ProjectStage projectStage;
 
-
-
-
     @Parameter(property = "productName")
     private String productName;
+
+    @Parameter(property = "component")
+    private String component;
 
     @Parameter(property = "productCodeName")
     private String productCodeName;
@@ -136,6 +139,22 @@ public class YabiBuildInfoMavenPlugin extends AbstractMojo {
         this.version = version;
     }
 
+    public boolean isMainclass() {
+        return mainclass;
+    }
+
+    public void setMainclass(boolean mainclass) {
+        this.mainclass = mainclass;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public boolean isOverwrite() {
         return overwrite;
     }
@@ -169,6 +188,14 @@ public class YabiBuildInfoMavenPlugin extends AbstractMojo {
 
     public void setSrcRoot(String srcRoot) {
         this.srcRoot = srcRoot;
+    }
+
+    public String getComponent() {
+        return component;
+    }
+
+    public void setComponent(String component) {
+        this.component = component;
     }
 
     public boolean isMkdir() {
@@ -410,6 +437,10 @@ public class YabiBuildInfoMavenPlugin extends AbstractMojo {
             bif.writeShieldsioUrl(shieldsioUrl);
             bif.writeLogoUrl(logoUrl);
             bif.writeConstructor();
+
+            if (mainclass)
+                bif.writeMainClass(productName, component,buildTime, projectStage, version);
+
             bif.writeGetter("productName", "String");
             bif.writeGetter("buildDateTime", "LocalDateTime");
             bif.writeGetter("version", "String");

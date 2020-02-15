@@ -71,6 +71,40 @@ public class BuildInfoFileWriter {
         writer.newLine();
     }
 
+    public void writeMainClass(@NotNull final String productName, @NotNull final String component, @NotNull final LocalDateTime buildTime,
+                               @NotNull final YabiBuildInfoMavenPlugin.ProjectStage projectStage,
+                               @NotNull final String version) throws IOException {
+        final String productName_ = "Project: " + productName;
+        final String projectStage_ = "Stage: " + projectStage.toString();
+        final String version_ = "Version: " + version;
+        final String buildTime_ = "Build time: " + buildTime.format(formatter);
+
+        writer.newLine();
+        writer.write("\tpublic void main(String[] args) {");
+        writer.newLine();
+
+        writer.write("\t\tSystem.out.println(\"" + productName_ + "\");");
+        writer.newLine();
+
+        if (component != null) {
+            final String component_ = "Component: " + component;
+            writer.write("\t\tSystem.out.println(\"" + component_ + "\");");
+            writer.newLine();
+        }
+
+        writer.write("\t\tSystem.out.println(\"" + projectStage_ + "\");");
+        writer.newLine();
+
+        writer.write("\t\tSystem.out.println(\"" + version_ + "\");");
+        writer.newLine();
+
+        writer.write("\t\tSystem.out.println(\"" + buildTime_ + "\");");
+        writer.newLine();
+
+        writer.write("\t}");
+        writer.newLine();
+    }
+
     public void writeBuildDateTimeVariables() throws IOException {
         int year = buildTime.getYear();
         int month = buildTime.getMonthValue();
