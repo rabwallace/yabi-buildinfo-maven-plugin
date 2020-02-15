@@ -80,7 +80,7 @@ public class BuildInfoFileWriter {
         final String buildTime_ = "Build time: " + buildTime.format(formatter);
 
         writer.newLine();
-        writer.write("\tpublic void main(String[] args) {");
+        writer.write("\tpublic static void main(String[] args) {");
         writer.newLine();
 
         writer.write("\t\tSystem.out.println(\"" + productName_ + "\");");
