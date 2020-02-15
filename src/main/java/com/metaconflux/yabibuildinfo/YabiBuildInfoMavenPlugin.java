@@ -372,10 +372,10 @@ public class YabiBuildInfoMavenPlugin extends AbstractMojo {
     protected void validateOutputDirectory(@NotNull final File pkgDir) throws MojoExecutionException {
         if (!pkgDir.exists()) {
             if (!mkdir)
-                throw new MojoExecutionException("FAIL: srcRoot not found, either create directory, or set mkdir to true");
+                throw new MojoExecutionException("FAIL: srcRoot not found, either create directory, or set mkdir to true: " + pkgDir.getAbsolutePath());
             else {
                 if (!pkgDir.mkdirs()) {
-                    throw new MojoExecutionException("FAIL: error occurred creating package directory");
+                    throw new MojoExecutionException("FAIL: error occurred creating package directory: " + pkgDir.getAbsolutePath());
                 }
             }
         }
