@@ -83,13 +83,13 @@ The plugin has a few mandatory config settings and several optional settings. Al
                             <productName>yabi-buildinfo-maven-plugin</productName>
                             <version>1.0</version>
                             <javaClassname>BuildInfo</javaClassname>
-                            <javaPackage>com.metaconflux.yabibuildinfo.version</javaPackage>
-                            <srcRoot>\Users\User\IdeaProjects\yabi-buildinfo-maven-plugin\src\main\java</srcRoot>
+                            <javaPackage>com.myproject.version</javaPackage>
+                            <srcRoot>${project.build.sourceDirectory}</srcRoot>
                             <projectStage>DEVELOPMENT</projectStage>
                             <mainclass>true</mainclass>
                             <copyright></copyright>
                             <author>Rab Wallace</author>
-                            <authorEmail>javarab@yahoo.com</authorEmail>
+                            <authorEmail>zzz@zzzzzzz.zzz</authorEmail>
                             <company></company>
                             <companyEmail></companyEmail>
                             <productCodeName></productCodeName>
