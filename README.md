@@ -1,4 +1,4 @@
-![yabi-buildinfo-maven-plugin v1.0](https://img.shields.io/badge/yabi--buildinfo--maven--plugin-v1.0-success)
+![yabi-buildinfo-maven-plugin v1.01](https://img.shields.io/badge/yabi--buildinfo--maven--plugin-v1.01-success)
 
 #####YABI (Yet Another Build Info) Maven Plugin
 
@@ -33,7 +33,7 @@ email: javarab@yahoo.com
     <dependency>
         <groupId>com.metaconflux</groupId>
         <artifactId>yabi-buildinfo-maven-plugin</artifactId>
-        <version>1.0</version>
+        <version>1.01</version>
     </dependency>
 
 #####Plugin Configuration (pom.xml)
@@ -49,12 +49,14 @@ The plugin has a few mandatory config settings and several optional settings. Al
     <projectStage> (enum, default: DEVELOPMENT)
     <mkdir> (boolean, default: true, can the plugin generated the required directory)
     <overwrite> (boolean, default true, can the plugin overwrite any previous buildinfo output)
+    <mainclass> (boolean, defaut: true) if true, produces a main class allowing you to say "java -jar myjar.jar" to get buildinfo data.
     <productCodeName>
-    <productUrl>
-    <description>
-    <copyright>
-    <logoUrl>
-    <shieldsioUrl>
+    <component> Use it to specify the name of a subpart or module of the main product.
+    <productUrl> Link to your products webpage.
+    <description> Description of the product.
+    <copyright> Your copyright statement.
+    <logoUrl> Url link to your products logo.
+    <shieldsioUrl> Url link for a ShieldsIo badge.
     <author>
     <authorEmail>
     <team>
@@ -84,7 +86,7 @@ The plugin has a few mandatory config settings and several optional settings. Al
                             <javaPackage>com.metaconflux.yabibuildinfo.version</javaPackage>
                             <srcRoot>\Users\User\IdeaProjects\yabi-buildinfo-maven-plugin\src\main\java</srcRoot>
                             <projectStage>DEVELOPMENT</projectStage>
-
+                            <mainclass>true</mainclass>
                             <copyright></copyright>
                             <author>Rab Wallace</author>
                             <authorEmail>javarab@yahoo.com</authorEmail>
