@@ -80,7 +80,7 @@
                             <mainclass>true</mainclass>
                             <javaClassname>BuildInfo</javaClassname>
                             <javaPackage>com.metaconflux.yabibuildinfo.version</javaPackage>
-                            <srcRoot>\Users\User\IdeaProjects\yabi-buildinfo-maven-plugin\src\main\java</srcRoot>
+                            <srcRoot>${project.build.sourceDirectory}</srcRoot>
                             <projectStage>TEST</projectStage>
                             <description>A maven plugin that generates build-time information.</description>
                             <copyright>Copyright 2020 Rab Wallace, GNU General Public License GPLv3 or later</copyright>
