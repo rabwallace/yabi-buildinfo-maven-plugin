@@ -81,7 +81,7 @@
                             <javaClassname>BuildInfo</javaClassname>
                             <javaPackage>com.metaconflux.yabibuildinfo.version</javaPackage>
                             <srcRoot>${project.build.sourceDirectory}</srcRoot>
-                            <projectStage>TEST</projectStage>
+                            <projectStage>PRODUCTION</projectStage>
                             <description>A maven plugin that generates build-time information.</description>
                             <copyright>Copyright 2020 Rab Wallace, GNU General Public License GPLv3 or later</copyright>
                             <author>Rab Wallace</author>
