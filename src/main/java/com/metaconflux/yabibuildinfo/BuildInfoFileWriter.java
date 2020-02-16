@@ -123,7 +123,8 @@ public class BuildInfoFileWriter {
         writer.newLine();
     }
 
-    public void writeProductDetails(@NotNull final String productName, @Nullable String productCodeName, @Nullable String productUrl) throws IOException {
+    public void writeProductDetails(@NotNull final String productName, @Nullable String productCodeName,
+                                    @Nullable String productUrl, @NotNull String component) throws IOException {
         writer.write("\tpublic static final String productName = \"" + productName + "\";");
         writer.newLine();
         if (productCodeName != null) {
@@ -132,6 +133,10 @@ public class BuildInfoFileWriter {
         }
         if (productUrl != null) {
             writer.write("\tpublic static final String productUrl = \"" + productUrl + "\";");
+            writer.newLine();
+        }
+        if (component != null) {
+            writer.write("\tpublic static final String component = \"" + component + "\";");
             writer.newLine();
         }
     }
@@ -198,17 +203,17 @@ public class BuildInfoFileWriter {
         writer.close();
     }
 
-    public void writeGetter(String memberName, String memberType) throws IOException {
-        String tmp = memberName.toUpperCase();
-        String getter = "get" + tmp.charAt(0) + memberName.substring(1);
-
-        writer.newLine();
-        writer.write("\tpublic ");
-        writer.write(memberType);
-        writer.write(" " + getter + "() { ");
-        writer.write("return " + memberName + "; }");
-        writer.newLine();
-    }
+//    public void writeGetter(String memberName, String memberType) throws IOException {
+//        String tmp = memberName.toUpperCase();
+//        String getter = "get" + tmp.charAt(0) + memberName.substring(1);
+//
+//        writer.newLine();
+//        writer.write("\tpublic ");
+//        writer.write(memberType);
+//        writer.write(" " + getter + "() { ");
+//        writer.write("return " + memberName + "; }");
+//        writer.newLine();
+//    }
 
     public void writeProjectStageEnum() throws IOException {
         writer.newLine();

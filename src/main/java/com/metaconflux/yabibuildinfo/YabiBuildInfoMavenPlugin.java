@@ -427,7 +427,7 @@ public class YabiBuildInfoMavenPlugin extends AbstractMojo {
             bif.writeProjectStageEnum();
             bif.writeBuildDateTimeVariables();
             bif.writeVersion(version);
-            bif.writeProductDetails(productName, productCodeName, productUrl);
+            bif.writeProductDetails(productName, productCodeName, productUrl, component);
             bif.writeCompanyDetails(company, companyEmail);
             bif.writeTeamDetails(team, teamEmail);
             bif.writeAuthorDetails(author, authorEmail);
@@ -441,10 +441,6 @@ public class YabiBuildInfoMavenPlugin extends AbstractMojo {
             if (mainclass)
                 bif.writeMainClass(productName, component,buildTime, projectStage, version);
 
-            bif.writeGetter("productName", "String");
-            bif.writeGetter("buildDateTime", "LocalDateTime");
-            bif.writeGetter("version", "String");
-            bif.writeGetter("projectStage", "ProjectStage");
             bif.writeGetFormattedBuildDateTime();
             bif.writeCloseBrace();
         } finally {
