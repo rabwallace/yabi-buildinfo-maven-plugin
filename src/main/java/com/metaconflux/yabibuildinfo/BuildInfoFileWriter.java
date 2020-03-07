@@ -203,18 +203,6 @@ public class BuildInfoFileWriter {
         writer.close();
     }
 
-//    public void writeGetter(String memberName, String memberType) throws IOException {
-//        String tmp = memberName.toUpperCase();
-//        String getter = "get" + tmp.charAt(0) + memberName.substring(1);
-//
-//        writer.newLine();
-//        writer.write("\tpublic ");
-//        writer.write(memberType);
-//        writer.write(" " + getter + "() { ");
-//        writer.write("return " + memberName + "; }");
-//        writer.newLine();
-//    }
-
     public void writeProjectStageEnum() throws IOException {
         writer.newLine();
         writer.write("\tpublic enum ProjectStage { PROOF_OF_CONCEPT, DEVELOPMENT, TEST, ALPHA, BETA, PRODUCTION}");

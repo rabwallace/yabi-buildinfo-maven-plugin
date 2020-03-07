@@ -7,6 +7,35 @@
     <version>1.01</version>
     <name>yabi-buildinfo-maven-plugin</name>
 
+    <licenses>
+        <license>
+            <name>GNU General Public License 3.0 or later</name>
+            <comments></comments>
+            <distribution>yabi-buildinfo-maven-plugin is free software: you can redistribute it and/or modify
+                it under the terms of the GNU General Public License as published by
+                the Free Software Foundation, either version 3 of the License, or
+                (at your option) any later version.
+            </distribution>
+            <url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>rabwallace</id>
+            <name>Rab Wallace</name>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>GMT</timezone>
+            <url>https://www.linkedin.com/in/robert-wallace-44713//</url>
+            <email>javarab@yahoo.com</email>
+            <properties>
+                <picUrl>https://avatars1.githubusercontent.com/u/51701312?s=400</picUrl>
+            </properties>
+        </developer>
+    </developers>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -69,7 +98,7 @@
             <build>
                 <plugins>
                     <plugin>
-                    <groupId>com.metaconflux</groupId>
+                        <groupId>com.metaconflux</groupId>
                         <artifactId>yabi-buildinfo-maven-plugin</artifactId>
                         <version>1.01</version>
                         <configuration>

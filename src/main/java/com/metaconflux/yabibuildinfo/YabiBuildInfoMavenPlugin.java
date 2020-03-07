@@ -387,11 +387,6 @@ public class YabiBuildInfoMavenPlugin extends AbstractMojo {
         if (!pkgDir.canWrite()) {
             throw new MojoExecutionException("FAIL: srcRoot not writable");
         }
-
-//        if (mkdir && !srcRoot.mkdir()) {
-//            throw new MojoExecutionException("FAIL: srcRoot can't create directory");
-//        }
-
     }
 
     protected File createBuildInfoFile(@NotNull final File pkgDir) throws MojoExecutionException {
