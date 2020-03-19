@@ -91,31 +91,35 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-plugin-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <!-- see http://jira.codehaus.org/browse/MNG-5346 -->
+                    <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>mojo-descriptor</id>
+                        <goals>
+                            <goal>descriptor</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 
     <profiles>
         <profile>
             <id>BuildInfo</id>
             <build>
                 <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-plugin-plugin</artifactId>
-                        <version>3.6.0</version>
-                        <configuration>
-                            <!-- see http://jira.codehaus.org/browse/MNG-5346 -->
-                            <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
-                        </configuration>
-
-                        <executions>
-                            <execution>
-                                <id>mojo-descriptor</id>
-                                <goals>
-                                    <goal>descriptor</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
                     <plugin>
                         <groupId>com.metaconflux</groupId>
                         <artifactId>yabi-buildinfo-maven-plugin</artifactId>
