@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <prerequisites>
-        <maven>3</maven>
+        <maven>3.5.4</maven>
     </prerequisites>
 
     <groupId>com.metaconflux</groupId>
