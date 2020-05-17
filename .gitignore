@@ -1,3 +1,4 @@
 /target/
 /.idea/
-/src/test/java/com/metaconflux/buildinfo/version/
+/src/test/java/com/github/rabwallace/yabibuildinfo/buildinfo/version/
+/src/test/java/com/testoutput/

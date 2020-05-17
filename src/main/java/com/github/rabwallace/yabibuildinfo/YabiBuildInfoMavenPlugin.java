@@ -16,7 +16,7 @@
  * along with yabi-buildinfo-maven-plugin.  If not, see <https://www.gnu.org/licenses/>.
  *******************************************************************************************/
 
-package com.metaconflux.yabibuildinfo;
+package com.github.rabwallace.yabibuildinfo;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -434,10 +434,12 @@ public class YabiBuildInfoMavenPlugin extends AbstractMojo {
             bif.writeConstructor();
 
             if (mainclass)
-                bif.writeMainClass(productName, component,buildTime, projectStage, version);
+                bif.writeMainClass(productName, component, buildTime, projectStage, version);
 
             bif.writeGetFormattedBuildDateTime();
             bif.writeCloseBrace();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
         } finally {
             bif.close();
         }

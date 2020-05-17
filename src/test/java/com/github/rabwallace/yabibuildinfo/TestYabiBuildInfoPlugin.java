@@ -16,7 +16,7 @@
  * along with yabi-buildinfo-maven-plugin.  If not, see <https://www.gnu.org/licenses/>.
  *******************************************************************************************/
 
-package com.metaconflux.yabibuildinfo;
+package com.github.rabwallace.yabibuildinfo;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.junit.jupiter.api.Test;
@@ -132,10 +132,10 @@ public class TestYabiBuildInfoPlugin {
 
     @Test
     public void test_CreateBuildInfoFile() {
-        String FULL_DIRECTORY = "\\tmp\\TestPlugin";
-        FULL_DIRECTORY = FULL_DIRECTORY.replace('.', File.separatorChar);
+        final String fullDirectory = System.getProperty("user.dir") + File.separatorChar + "tmp";
 
-        final File dir = new File(FULL_DIRECTORY);
+        final File dir = new File(fullDirectory);
+        dir.mkdir();
 
         Plugin plugin = (Plugin) buildPlugin();
         plugin.setOverwrite(true);
@@ -150,13 +150,14 @@ public class TestYabiBuildInfoPlugin {
 
     @Test
     public void test_WriteBuildInfoFile() {
-        String FULL_DIRECTORY = "\\tmp\\TestPlugin";
-        FULL_DIRECTORY = FULL_DIRECTORY.replace('.', File.separatorChar);
+        final String currentDirectory = System.getProperty("user.dir") + File.separatorChar + "tmp";
 
-        final File dir = new File(FULL_DIRECTORY);
+        final File dir = new File(currentDirectory);
+        dir.mkdir();
 
         Plugin plugin = (Plugin) buildPlugin();
         plugin.setOverwrite(true);
+        plugin.setComponent("my component");
 
         final File buildInfoFile;
         try {
@@ -176,13 +177,14 @@ public class TestYabiBuildInfoPlugin {
 
     @Test
     public void test_WriteBuildInfoFile_overwriteFail() {
-        String FULL_DIRECTORY = "\\tmp\\TestPlugin";
-        FULL_DIRECTORY = FULL_DIRECTORY.replace('.', File.separatorChar);
+        final String currentDirectory = System.getProperty("user.dir") + File.separatorChar + "tmp";
 
-        final File dir = new File(FULL_DIRECTORY);
+        final File dir = new File(currentDirectory);
+        dir.mkdir();
 
         Plugin plugin = (Plugin) buildPlugin();
         plugin.setOverwrite(true);
+        plugin.setComponent("my component");
 
         //create a fresh copy first (overwrite if necessary)
         final File buildInfoFile;
@@ -202,48 +204,34 @@ public class TestYabiBuildInfoPlugin {
 
 
         //all should be ok so far
-        //now try to repeat but do not allow fie overwrite, this *should* throw an exception
+        //now try to repeat but do not allow file overwrite, this *should* throw an exception
         plugin.setOverwrite(false);
 
         //create a fresh copy first (overwrite if necessary)
-        final File buildInfoFile2;
+        File buildInfoFile2;
         try {
             buildInfoFile2 = plugin.createBuildInfoFile(dir);
             fail("ERROR: exception should have been thrown");
-//            assertNotNull(buildInfoFile2);
         } catch (MojoExecutionException e) {
-//            fail(e.getMessage());
-//            return;
         }
-
-
-        //try to create a new copy but do not overwrite - force fail
-//        plugin.setOverwrite(false);
-
-//        try {
-//            plugin.writeBuildInfoFile(buildInfoFile2);
-//            fail("Should not have got here.");
-//        } catch (IOException e) {
-////            fail(e.getMessage());
-//        }
-
-
     }
 
     @Test
     public void test_Execute() {
-        final String SRC_ROOT = "\\Users\\User\\IdeaProjects\\buildinfo-maven-plugin\\src\\test\\java";
-        final String PACKAGE = "com.metaconflux.testoutput";
+        final String SRC_ROOT = System.getProperty("user.dir") + File.separatorChar + "src" + File.separatorChar + "test" + File.separatorChar + "java";
+
+        final String PACKAGE = "com.testoutput";
         final String FILENAME = "BuildInfo";
 
         //test for previous test output (delete if found)
-        final String FULL_OUTPUT_DIRECTORY = SRC_ROOT + "\\com\\metaconflux\\testoutput\\" + FILENAME + ".java";
+        final String FULL_OUTPUT_DIRECTORY = SRC_ROOT + "\\com\\testoutput\\" + FILENAME + ".java";
         File buildInfoJavaFile = new File(FULL_OUTPUT_DIRECTORY);
         if (buildInfoJavaFile.exists())
             buildInfoJavaFile.delete();
 
 
         Plugin plugin = (Plugin) buildPlugin();
+        plugin.setComponent("my component");
         plugin.setSrcRoot(SRC_ROOT);
         plugin.setJavaPackage(PACKAGE);
         plugin.setJavaClassname(FILENAME);
