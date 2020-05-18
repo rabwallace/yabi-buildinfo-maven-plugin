@@ -1,4 +1,4 @@
-![yabi-buildinfo-maven-plugin v1.01](https://img.shields.io/badge/yabi--buildinfo--maven--plugin-v1.01-success)
+![yabi-buildinfo-maven-plugin v1.02](https://img.shields.io/badge/yabi--buildinfo--maven--plugin-v1.02-success)
 
 #####YABI (Yet Another Build Info) Maven Plugin
 

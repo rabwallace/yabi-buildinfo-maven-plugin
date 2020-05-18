@@ -16,9 +16,9 @@
  * along with yabi-buildinfo-maven-plugin.  If not, see <https://www.gnu.org/licenses/>.
  *******************************************************************************************/
 
-package com.metaconflux.yabibuildinfo;
+package com.github.rabwallace.yabibuildinfo;
 
-import com.metaconflux.yabibuildinfo.version.BuildInfo;
+import com.github.rabwallace.yabibuildinfo.version.BuildInfo;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
