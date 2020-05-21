@@ -46,7 +46,7 @@ The plugin has a few mandatory config settings and several optional settings. Al
     <projectStage> (enum, default: DEVELOPMENT)
     <mkdir> (boolean, default: true, can the plugin generated the required directory)
     <overwrite> (boolean, default true, can the plugin overwrite any previous buildinfo output)
-    <mainclass> (boolean, defaut: true) if true, produces a main class allowing you to say "java -jar myjar.jar" to get buildinfo data.
+    <mainclass> (boolean, defaut: true) if true, produces a main() method inside your BuildInfo class allowing you to say "java -jar myjar.jar" to get buildinfo data.
     <productCodeName>
     <component> Use it to specify the name of a subpart or module of the main product.
     <productUrl> Link to your products webpage.
@@ -87,7 +87,6 @@ The plugin has a few mandatory config settings and several optional settings. Al
                 <javaPackage>com.myproject.version</javaPackage>
                 <srcRoot>${project.build.sourceDirectory}</srcRoot>
                 <projectStage>DEVELOPMENT</projectStage>
-                <mainclass>true</mainclass>
             </configuration>
 
             <executions>
@@ -109,6 +108,9 @@ Usage
 When the plugin runs, it will produce a small Java class with the build time information. The default name of this
 class is `BuildInfo.java` (or you can override this using `<javaClassname>`). This class has public static final values
 for all the build-time data it has assembled.
+
+The `<version>` tag can take any value, number or text. If your build process has a version label substition, then this tag would
+be the place to put it.
 
 Bugs and Feature Requests
 -------------------------
