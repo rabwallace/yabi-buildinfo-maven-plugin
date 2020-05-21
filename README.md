@@ -1,27 +1,8 @@
 ![yabi-buildinfo-maven-plugin v1.02](https://img.shields.io/badge/yabi--buildinfo--maven--plugin-v1.02-success)
 
-##### YABI (Yet Another Build Info) Maven Plugin
-
-    Copyright ©2020 Rab Wallace
-    This file is part of yabi-buildinfo-maven-plugin.
- 
-    yabi-buildinfo-maven-plugin is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
- 
-    yabi-buildinfo-maven-plugin is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
- 
-    You should have received a copy of the GNU General Public License
-    along with yabi-buildinfo-maven-plugin.  If not, see <https://www.gnu.org/licenses/>.
-
-
 ##### yabi-buildinfo-maven-plugin
-A simple, freely available maven plugin to build, and make available at runtime, build & project information, easily configurable from the pom.xml.
-Released as an open source project licensed under <b>GNU GPLv3 or later</b>.
+YABI (Yet Another Build Info): A simple, freely-available Maven plugin to build, and make available at runtime, build & project
+information, easily configurable from the pom.xml. Released as an open source project licensed under <b>GNU GPLv3 or later</b>.
 
 ###### Author
 [Rab Wallace](https://github.com/rabwallace)
@@ -138,3 +119,20 @@ Licence
 -------
 yabi-buildinfo-maven-plugin is licenced under the `GNU GPLv3 or later later` licence. See `COPYING` file for details.`
 
+```text
+    Copyright ©2020 Rab Wallace
+    This file is part of yabi-buildinfo-maven-plugin.
+ 
+    yabi-buildinfo-maven-plugin is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+ 
+    yabi-buildinfo-maven-plugin is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+ 
+    You should have received a copy of the GNU General Public License
+    along with yabi-buildinfo-maven-plugin.  If not, see <https://www.gnu.org/licenses/>.
+```
