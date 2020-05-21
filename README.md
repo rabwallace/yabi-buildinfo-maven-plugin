@@ -1,27 +1,8 @@
 ![yabi-buildinfo-maven-plugin v1.02](https://img.shields.io/badge/yabi--buildinfo--maven--plugin-v1.02-success)
 
-##### YABI (Yet Another Build Info) Maven Plugin
-
-    Copyright ©2020 Rab Wallace
-    This file is part of yabi-buildinfo-maven-plugin.
- 
-    yabi-buildinfo-maven-plugin is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
- 
-    yabi-buildinfo-maven-plugin is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
- 
-    You should have received a copy of the GNU General Public License
-    along with yabi-buildinfo-maven-plugin.  If not, see <https://www.gnu.org/licenses/>.
-
-
 ##### yabi-buildinfo-maven-plugin
-A simple, freely available maven plugin to build, and make available at runtime, build & project information, easily configurable from the pom.xml.
-Released as an open source project licensed under <b>GNU GPLv3 or later</b>.
+YABI (Yet Another Build Info): A simple, freely-available Maven plugin to build, and make available at runtime, build & project
+information, easily configurable from the pom.xml. Released as an open source project licensed under <b>GNU GPLv3 or later</b>.
 
 ###### Author
 [Rab Wallace](https://github.com/rabwallace)
@@ -65,7 +46,7 @@ The plugin has a few mandatory config settings and several optional settings. Al
     <projectStage> (enum, default: DEVELOPMENT)
     <mkdir> (boolean, default: true, can the plugin generated the required directory)
     <overwrite> (boolean, default true, can the plugin overwrite any previous buildinfo output)
-    <mainclass> (boolean, defaut: true) if true, produces a main class allowing you to say "java -jar myjar.jar" to get buildinfo data.
+    <mainclass> (boolean, defaut: true) if true, produces a main() method inside your BuildInfo class allowing you to say "java -jar myjar.jar" to get buildinfo data.
     <productCodeName>
     <component> Use it to specify the name of a subpart or module of the main product.
     <productUrl> Link to your products webpage.
@@ -106,7 +87,6 @@ The plugin has a few mandatory config settings and several optional settings. Al
                 <javaPackage>com.myproject.version</javaPackage>
                 <srcRoot>${project.build.sourceDirectory}</srcRoot>
                 <projectStage>DEVELOPMENT</projectStage>
-                <mainclass>true</mainclass>
             </configuration>
 
             <executions>
@@ -129,6 +109,9 @@ When the plugin runs, it will produce a small Java class with the build time inf
 class is `BuildInfo.java` (or you can override this using `<javaClassname>`). This class has public static final values
 for all the build-time data it has assembled.
 
+The `<version>` tag can take any value, number or text. If your build process has a version label substition, then this tag would
+be the place to put it.
+
 Bugs and Feature Requests
 -------------------------
 To report any bugs or make any feature requests, submit them here:
@@ -138,3 +121,20 @@ Licence
 -------
 yabi-buildinfo-maven-plugin is licenced under the `GNU GPLv3 or later later` licence. See `COPYING` file for details.`
 
+```text
+    Copyright ©2020 Rab Wallace
+    This file is part of yabi-buildinfo-maven-plugin.
+ 
+    yabi-buildinfo-maven-plugin is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+ 
+    yabi-buildinfo-maven-plugin is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+ 
+    You should have received a copy of the GNU General Public License
+    along with yabi-buildinfo-maven-plugin.  If not, see <https://www.gnu.org/licenses/>.
+```
