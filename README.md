@@ -1,6 +1,6 @@
 ![yabi-buildinfo-maven-plugin v1.02](https://img.shields.io/badge/yabi--buildinfo--maven--plugin-v1.02-success)
 
-#####YABI (Yet Another Build Info) Maven Plugin
+##### YABI (Yet Another Build Info) Maven Plugin
 
     Copyright ©2020 Rab Wallace
     This file is part of yabi-buildinfo-maven-plugin.
@@ -19,32 +19,38 @@
     along with yabi-buildinfo-maven-plugin.  If not, see <https://www.gnu.org/licenses/>.
 
 
-#####yabi-buildinfo-maven-plugin
+##### yabi-buildinfo-maven-plugin
 A simple, freely available maven plugin to build, and make available at runtime, build & project information, easily configurable from the pom.xml.
 
 Released as an open source project licensed under <b>GNU GPLv3 or later</b>.
 
-######Author
+###### Author
 [Rab Wallace](https://github.com/rabwallace)
 email: javarab@yahoo.com
 ---
 
-#####Maven Dependency
-    <dependency>
-        <groupId>com.metaconflux</groupId>
-        <artifactId>yabi-buildinfo-maven-plugin</artifactId>
-        <version>1.01</version>
-    </dependency>
+##### Maven Dependency
 
-#####Plugin Configuration (pom.xml)
+```xml
+<dependency>
+    <groupId>com.metaconflux</groupId>
+    <artifactId>yabi-buildinfo-maven-plugin</artifactId>
+    <version>1.01</version>
+</dependency>
+```
+
+##### Plugin Configuration (pom.xml)
 The plugin has a few mandatory config settings and several optional settings. All are string values (except where stated):
-#####Required configuration
+##### Required configuration
+```xml
     <productName>
     <javaClassname> (default: "BuildInfo", this is the name of the java source file that will be generated)
     <javaPackage>
     <srcRoot>
+```
 
-#####Optional configuration
+##### Optional configuration
+```xml
     <version>
     <projectStage> (enum, default: DEVELOPMENT)
     <mkdir> (boolean, default: true, can the plugin generated the required directory)
@@ -63,16 +69,20 @@ The plugin has a few mandatory config settings and several optional settings. Al
     <teamEmail>
     <companyName>
     <companyEmail>
+```
 
-#####Values of the ProjectStage enumeration:
-        - PROOF_OF_CONCEPT,
-        - DEVELOPMENT,
-        - TEST,
-        - ALPHA,
-        - BETA,
-        - PRODUCTION
+##### Values of the ProjectStage enumeration:
+```java
+- PROOF_OF_CONCEPT,
+- DEVELOPMENT,
+- TEST,
+- ALPHA,
+- BETA,
+- PRODUCTION
+```
 
-#####Example pom.xml configuration
+##### Example pom.xml configuration
+```xml
             <build>
                 <plugins>
                     <plugin>
@@ -107,3 +117,4 @@ The plugin has a few mandatory config settings and several optional settings. Al
                     </plugin>
                 </plugins>
             </build>
+```
