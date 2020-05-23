@@ -162,7 +162,7 @@ be the place to put it.
 
 Bugs and Feature Requests
 -------------------------
-To report any bugs or make any feature requests, submit them here:
+To report any bugs or make any feature requests, submit them here:<br>
 [https://github.com/rabwallace/yabi-buildinfo-maven-plugin/issues](https://github.com/rabwallace/yabi-buildinfo-maven-plugin/issues)
 
 Licence
