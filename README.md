@@ -126,11 +126,11 @@ Example full configuration
                 <component>Inter-process bridge thingy</component> 
                 <productUrl>http://zzz.zzzzzzzzz.zzz/our-product</productUrl>
                 <description>Description of the ZZZ product</description>
-                <copyright>Copyright 2020 Company-ZZZ</copyright>>
+                <copyright>Copyright 2020 Company-ZZZ</copyright>
                 <logoUrl>http://zzz.zzzzzzzzz.zzz/ourLogo.png</logoUrl>
                 <shieldsioUrl>https://img.shields.io/badge/zzzzz-your-badge</shieldsioUrl>
-                <author> The place to claim your fame
-                <authorEmail> So your fans can contact you
+                <author>You can add yoru name here</author>
+                <authorEmail>Add your email here</authorEmail>
                 <team>Awesome Dev Team</team>
                 <teamEmail>devteam@zzzzzzzzz.zzz</teamEmail>
                 <companyName>Company ZZZ</companyName>
