@@ -8,8 +8,8 @@ information, easily configurable from the pom.xml. Released as an open source pr
 ### Table of Contents ###
 * [Installation](#installation)
 * [Maven Configuration](#maven-configuration)
-    * [Example pom.xml (minimal configuration)](#example-pom-xml-minimal-configuration)
-    * [Example pom.xml (full configuration)](#example-pom-xml-full-configuration)
+    * [Example minimal configuration](#example-minimal-configuration)
+    * [Example full configuration](#example-full-configuration)
 * [Usage](#usage)
 * [Bugs & Feature Requests](#bugs-and-feature-requests)
 * [Licence](#licence)
@@ -72,8 +72,8 @@ BETA
 PRODUCTION
 ```
 
-Example pom.xml (minimal configuration)
----------------------------------------
+Example minimal configuration
+-----------------------------
 ```xml
 <build>
     <plugins>
@@ -103,8 +103,8 @@ Example pom.xml (minimal configuration)
 </build>
 ```
 
-Example pom.xml (full configuration)
-------------------------------------
+Example full configuration
+--------------------------
 ```xml
 <build>
     <plugins>
