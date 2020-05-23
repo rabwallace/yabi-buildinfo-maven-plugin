@@ -7,6 +7,8 @@
     <packaging>maven-plugin</packaging>
     <version>1.02</version>
     <name>yabi-buildinfo-maven-plugin</name>
+    <description>YABI (YetAnotherBuildInfo): A light-weight Maven plugin that generates build-time information, configurable from the pom.</description>
+    <url>https://github.com/rabwallace/yabi-buildinfo-maven-plugin</url>
 
     <licenses>
         <license>
@@ -243,9 +245,9 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>com.metaconflux</groupId>
+                        <groupId>com.github.rabwallace.yabibuildinfo</groupId>
                         <artifactId>yabi-buildinfo-maven-plugin</artifactId>
-                        <version>1.01</version>
+                        <version>1.02</version>
                         <configuration>
                             <productName>yabi-buildinfo-maven-plugin</productName>
                             <productCodeName></productCodeName>
