@@ -4,11 +4,12 @@
 YABI (Yet Another Build Info): A simple, freely-available Maven plugin to build, and make available at runtime, build & project
 information, easily configurable from the pom.xml. Released as an open source project licensed under <b>GNU GPLv3 or later</b>.
 
----
 
 ### Table of Contents ###
 * [Installation](#installation)
 * [Maven Configuration](#maven-configuration)
+    * [Example pom.xml (minimal configuration)](#example-pom-xml-minimal-configuration)
+    * [Example pom.xml (full configuration)](#example-pom-xml-full-configuration)
 * [Usage](#usage)
 * [Bugs & Feature Requests](#bugs-and-feature-requests)
 * [Licence](#licence)
@@ -71,7 +72,39 @@ BETA
 PRODUCTION
 ```
 
-##### Example pom.xml configuration
+Example pom.xml (minimal configuration)
+---------------------------------------
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>com.github.rabwallace.yabibuildinfo</groupId>
+            <artifactId>yabi-buildinfo-maven-plugin</artifactId>
+            <version>1.02</version>
+            <configuration>
+                <productName>MyProductNameGoesHere</productName>
+                <version>1.0</version>
+                <javaClassname>BuildInfo</javaClassname>
+                <javaPackage>com.myproject.version</javaPackage>
+                <srcRoot>${project.build.sourceDirectory}</srcRoot>
+            </configuration>
+
+            <executions>
+                <execution>
+                    <id>generate-sources</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>buildinfo</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+```
+
+Example pom.xml (full configuration)
+------------------------------------
 ```xml
 <build>
     <plugins>
@@ -86,6 +119,22 @@ PRODUCTION
                 <javaPackage>com.myproject.version</javaPackage>
                 <srcRoot>${project.build.sourceDirectory}</srcRoot>
                 <projectStage>DEVELOPMENT</projectStage>
+                <mkdir>true</mkdir>
+                <overwrite>false</overwrite>
+                <mainclass>true</mainclass>
+                <productCodeName>Project Donut</productCodeName> 
+                <component>Inter-process bridge thingy</component> 
+                <productUrl>http://zzz.zzzzzzzzz.zzz/our-product</productUrl>
+                <description>Description of the ZZZ product</description>
+                <copyright>Copyright 2020 Company-ZZZ</copyright>>
+                <logoUrl>http://zzz.zzzzzzzzz.zzz/ourLogo.png</logoUrl>
+                <shieldsioUrl>https://img.shields.io/badge/zzzzz-your-badge</shieldsioUrl>
+                <author> The place to claim your fame
+                <authorEmail> So your fans can contact you
+                <team>Awesome Dev Team</team>
+                <teamEmail>devteam@zzzzzzzzz.zzz</teamEmail>
+                <companyName>Company ZZZ</companyName>
+                <companyEmail>info@zzzzzzzzz.zzz</companyEmail>
             </configuration>
 
             <executions>
