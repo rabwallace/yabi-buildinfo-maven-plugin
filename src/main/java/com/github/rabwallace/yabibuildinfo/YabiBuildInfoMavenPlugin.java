@@ -38,7 +38,7 @@ import java.time.LocalDateTime;
 @Mojo(name = "buildinfo")
 public class YabiBuildInfoMavenPlugin extends AbstractMojo {
     private static final String PLUGIN_NAME = "yabi-buildinfo-maven-plugin";
-    private static final String PLUGIN_VERSION = "1.01";
+    private static final String PLUGIN_VERSION = "1.02";
     protected static final String DEFAULT_PLUGIN_DEFAULT_CLASSNAME = "BuildInfo";
 
     public static enum ProjectStage {
@@ -412,7 +412,7 @@ public class YabiBuildInfoMavenPlugin extends AbstractMojo {
     }
 
     protected void writeBuildInfoFile(@NotNull final File outFile) throws IOException {
-        BuildInfoFileWriter bif = new BuildInfoFileWriter(outFile, javaPackage, buildTime);
+        final BuildInfoFileWriter bif = new BuildInfoFileWriter(outFile, javaPackage, buildTime);
 
         try {
             bif.writeImport("java.time.LocalDateTime");
